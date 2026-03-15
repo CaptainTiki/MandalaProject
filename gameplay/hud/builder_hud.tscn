@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://builderhudtscn"]
+
+[ext_resource type="Script" uid="uid://builderhudgd01" path="res://gameplay/hud/builder_hud.gd" id="1"]
+
+[node name="BuilderHUD" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1")
+
+; Right-side panel — anchored to the right edge of the viewport, 280 px wide,
+; full height. grow_horizontal = 0 (BEGIN) so it expands leftward if content
+; ever exceeds the fixed width.
+[node name="RightPanel" type="PanelContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_top = 0.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_right = 0.0
+offset_top = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+
+[node name="Margin" type="MarginContainer" parent="RightPanel"]
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="RightPanel/Margin"]
+theme_override_constants/separation = 10
+
+[node name="ShapeLabel" type="Label" parent="RightPanel/Margin/VBox"]
+text = "SHAPE"
+theme_override_font_sizes/font_size = 13
+
+; Buttons are spawned into this grid by builder_hud.gd at runtime.
+[node name="ShapeGrid" type="GridContainer" parent="RightPanel/Margin/VBox"]
+columns = 1
+theme_override_constants/v_separation = 4
+
+[node name="HSep" type="HSeparator" parent="RightPanel/Margin/VBox"]
+
+[node name="ColorLabel" type="Label" parent="RightPanel/Margin/VBox"]
+text = "COLOR"
+theme_override_font_sizes/font_size = 13
+
+; Buttons are spawned into this grid by builder_hud.gd at runtime.
+[node name="ColorGrid" type="GridContainer" parent="RightPanel/Margin/VBox"]
+columns = 1
+theme_override_constants/v_separation = 4

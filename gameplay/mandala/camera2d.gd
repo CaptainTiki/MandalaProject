@@ -38,4 +38,4 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	zoom = zoom.lerp(Vector2(_target_zoom, _target_zoom), ZOOM_LERP_SPEED * delta)
-	_background.global_position = global_position
+	#_background.global_position = global_position

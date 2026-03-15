@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bx4mpiecescn1"]
+
+[ext_resource type="Script" uid="uid://c8vr3nxmppiece" path="res://gameplay/shapes/mandala_piece.gd" id="1"]
+[ext_resource type="Shader" path="res://assets/shaders/mandala_piece.gdshader" id="2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1"]
+shader = ExtResource("2")
+shader_parameter/pulse_speed = 1.2
+shader_parameter/pulse_amplitude = 0.12
+shader_parameter/glow_intensity = 1.0
+shader_parameter/saturation = 1.0
+shader_parameter/shape_radius = 60.0
+shader_parameter/inner_glow_strength = 0.35
+
+[node name="MandalaPiece" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Polygon" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_1")
